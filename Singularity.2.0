@@ -62,7 +62,8 @@ pip --no-cache-dir install \
         pandas \
         Pillow \
         scipy \
-        sklearn
+        sklearn \
+        ipdb
 
 python -m ipykernel.kernelspec
 
