@@ -1,9 +1,9 @@
 Bootstrap: shub
 From: bbrito/singularity_images:2.0
 
-
 %post
     echo "Hello from inside the container"
+    mkdir -p /home/bdebrito_sing
     apt-get update
     apt-get install -y \
         wget \
@@ -17,7 +17,9 @@ From: bbrito/singularity_images:2.0
         mercurial \
         make \
         htop \
-        terminator
+        terminator \
+        python-wstool \
+        ssh
     apt-get clean
 
     apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
@@ -33,6 +35,23 @@ From: bbrito/singularity_images:2.0
     apt-get install -q -y ros-kinetic-vision-msgs
     apt-get install -q -y gazebo9=9.0.0-1*
     apt-get install -q -y libgazebo9-dev ros-kinetic-gazebo9-plugins ros-kinetic-gazebo9-ros
+    
+    cd /home/bdebrito_sing
+    wstool init .
+    wstool merge https://raw.githubusercontent.com/bbrito/social-lstm-tf/master/social_lstm.rosinstall
+    wstool update
+    
+    cd social-lstm-tf/
+    git remote add fran-origin https://github.com/framarbon/social-lstm-tf.git
+    git remote add bfb-origin https://github.com/bbrito/social-lstm-tf.git
+    git fetch -p --all
+    git checkout -b master_fixed bfb-origin/master_fixed
+    
+    cd social_lstm
+    mkdir log/ log/3/
+    mkdir save/ save/3/
+    
 
 %runscript
     echo "This is what happens when you run the container..."
+    sudo python social_train.py
