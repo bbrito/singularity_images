@@ -8,7 +8,19 @@ From: bbrito/singularity_images:2.1
     apt-get update
     apt-get install -y \
         python-wstool \
+        ros-kinetic-moveit-msgs \
+        ros-kinetic-jsk-recognition-msgs \
+        ros-kinetic-moveit-ros \
+        ros-kinetic-moveit \
         ssh
+        
+    cd /home/bdebrito_sing/
+    git clone https://github.com/acado/acado.git -b stable ACADOtoolkit
+    cd ACADOtoolkit
+	mkdir build
+	cd build
+	cmake ..
+	make
         
     cd /home/bdebrito_sing/catkin_ws/src
     wstool init .
