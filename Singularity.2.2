@@ -3,13 +3,14 @@ From: bbrito/singularity_images:2.1
 
 %post
     echo "Hello from inside the container"
-    mkdir -p /home/bdebrito_sing
+    mkdir -p /home/bdebrito_sing/catkin_ws
+    mkdir -p /home/bdebrito_sing/catkin_ws/src
     apt-get update
     apt-get install -y \
         python-wstool \
         ssh
         
-    cd /home/bdebrito_sing
+    cd /home/bdebrito_sing/catkin_ws/src
     wstool init .
     wstool merge https://raw.githubusercontent.com/bbrito/predictive_control/master/predictive_control.rosinstall
     wstool update
