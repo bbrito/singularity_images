@@ -21,6 +21,7 @@ export DEBIAN_FRONTEND=noninteractive && \
         module-init-tools \
         pkg-config \
         python \
+	python-pip \
         python-dev \
         python-tk \
         python3 \
