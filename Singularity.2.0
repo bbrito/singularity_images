@@ -90,7 +90,8 @@ pip3 --no-cache-dir install \
         pandas \
         Pillow \
         scipy \
-        sklearn
+        sklearn \
+	cv2
 
 python3 -m ipykernel.kernelspec
 
