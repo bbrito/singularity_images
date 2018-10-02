@@ -64,7 +64,9 @@ pip --no-cache-dir install \
         Pillow \
         scipy \
         sklearn \
-        ipdb
+        ipdb \
+	opencv-python \
+	opencv-contrib-python-headless
 
 python -m ipykernel.kernelspec
 
@@ -92,7 +94,8 @@ pip3 --no-cache-dir install \
         Pillow \
         scipy \
         sklearn \
-	cv2
+	opencv-python \
+	opencv-contrib-python-headless
 
 python3 -m ipykernel.kernelspec
 
