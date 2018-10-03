@@ -66,7 +66,8 @@ pip --no-cache-dir install \
         sklearn \
         ipdb \
 	opencv-python \
-	opencv-contrib-python-headless
+	opencv-contrib-python-headless \
+	seaborn
 
 python -m ipykernel.kernelspec
 
