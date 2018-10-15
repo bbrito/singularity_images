@@ -67,7 +67,11 @@ pip --no-cache-dir install \
         ipdb \
 	opencv-python \
 	opencv-contrib-python-headless \
-	seaborn
+	seaborn \
+	attrdict==2.0.0 \
+	six==1.11.0 \
+	http://download.pytorch.org/whl/cpu/torch-0.4.1-cp27-cp27mu-linux_x86_64.whl \
+	torchvision==0.2.1
 
 python -m ipykernel.kernelspec
 
@@ -96,7 +100,11 @@ pip3 --no-cache-dir install \
         scipy \
         sklearn \
 	opencv-python \
-	opencv-contrib-python-headless
+	opencv-contrib-python-headless \
+	attrdict==2.0.0 \
+	six==1.11.0 \
+	http://download.pytorch.org/whl/cpu/torch-0.4.1-cp35-cp35m-linux_x86_64.whl \
+	torchvision==0.2.1
 
 python3 -m ipykernel.kernelspec
 
